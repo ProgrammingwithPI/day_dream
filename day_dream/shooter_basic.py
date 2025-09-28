@@ -71,14 +71,17 @@ def draw_laser_and_hit(cursorx, cursory, playerx, playery):
             octagon_enemies_to_remove.append(o_enemy)
 
     for e in enemies_to_remove:
+        death_sound.play()
         if e in enemies:
             enemies.remove(e)
             score += 1
     for ce in circle_enemies_to_remove:
+        death_sound.play()
         if ce in circle_enemies:
             circle_enemies.remove(ce)
             score += 1
     for oe in octagon_enemies_to_remove:
+        death_sound.play()
         if oe in octagon_enemies:
             octagon_enemies.remove(oe)
             score += 2
@@ -412,6 +415,9 @@ while running:
                     shoot_sound.play()
                     shotgun_cooldown = 20  # frames cooldown
             elif current_weapons == 3 and laser:
+                draw_laser_and_hit(mouse_x, mouse_y, player_x, player_y)
+                shoot_sound.play()
+            elif laser:
                 draw_laser_and_hit(mouse_x, mouse_y, player_x, player_y)
                 shoot_sound.play()
         elif event.type == pygame.KEYDOWN:
