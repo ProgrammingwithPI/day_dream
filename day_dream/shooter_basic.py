@@ -12,6 +12,10 @@ pygame.mixer.init()
 shoot_sound = pygame.mixer.Sound("shoot.wav")
 death_sound = pygame.mixer.Sound("death.wav")
 
+pygame.display.flip()
+start_time = pygame.time.get_ticks()
+
+
 WHITE = (255, 255, 255)
 RED = (255, 0, 0)
 BLUE = (0, 0, 255)
